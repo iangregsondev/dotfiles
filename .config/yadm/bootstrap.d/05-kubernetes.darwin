@@ -1,0 +1,32 @@
+#!/bin/bash
+
+echo "Executing $0"
+
+# This is for specific Darwin-based systems.
+
+# Get the system type
+system_type=$(uname -s)
+
+# If the system type is not Darwin, exit
+if [ "$system_type" != "Darwin" ]; then
+    echo "Exiting, not darwin"
+    exit 0
+fi
+
+# kubectl - https://kubernetes.io/docs/tasks/tools/#kubectl
+if ! type kubectl &>/dev/null; then
+    echo "kubectl is not installed, installing..."
+    brew install kubectl
+fi
+
+# Kubectx/kubens - https://github.com/ahmetb/kubectx
+if ! type kubectx &>/dev/null || ! type kubens &>/dev/null; then
+    echo "kubectx/kubens is not installed, installing..."
+    brew install kubectx
+fi
+
+# k9s - https://k9scli.io/
+if ! type k9s &>/dev/null; then
+    echo "k9s is not installed, installing..."
+    brew install derailed/k9s/k9s
+fi

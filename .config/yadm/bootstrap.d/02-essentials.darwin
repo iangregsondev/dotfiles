@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "Executing $0"
+
+# This is for specific Darwin-based systems.
+
+# Get the system type
+system_type=$(uname -s)
+
+# If the system type is not Darwin, exit
+if [ "$system_type" != "Darwin" ]; then
+    echo "Exiting, not darwin"
+    exit 0
+fi
+
+# Starship - https://starship.rs
+if ! type starship &>/dev/null; then
+    echo "starship is not installed, installing..."
+    brew install starship
+fi
+
+# Warp - https://www.warp.dev
+if ! ls /Applications | grep -i "Warp.app" &>/dev/null; then
+    echo "warp is not installed, installing..."
+    brew install --cask warp
+fi
+
+# Ghostty - https://ghosty.org
+if ! type ghostty &>/dev/null; then
+    echo "ghostty is not installed, installing..."
+    brew install --cask ghostty
+fi
+
+# FiraCode Nerd Font - https://www.nerdfonts.com/font-downloads
+if ! ls ~/Library/Fonts | grep -i "FiraCodeNerdFont" &>/dev/null; then
+    echo "FiraCode Nerd Font is not installed,  installing..."
+    brew install --cask font-fira-code-nerd-font
+fi
+
+# Tmux - https://github.com/tmux/tmux
+if ! type tmux &>/dev/null; then
+    echo "tmux is not installed, installing..."
+    brew install tmux
+fi
+
+# Neovim - https://neovim.io
+if ! type nvim &>/dev/null; then
+    echo "neovim is not installed, installing..."
+    brew install neovim
+fi

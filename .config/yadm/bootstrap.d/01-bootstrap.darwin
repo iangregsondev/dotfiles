@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Executing $0"
+
+# This is for specific Darwin-based systems.
+
+# Get the system type
+system_type=$(uname -s)
+
+# If the system type is not Darwin, exit
+if [ "$system_type" != "Darwin" ]; then
+    echo "Exiting, not darwin"
+    exit 0
+fi
+
+# Brew - https://brew.sh
+if ! type brew &>/dev/null; then
+    echo "brew is not installed, installing it"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi

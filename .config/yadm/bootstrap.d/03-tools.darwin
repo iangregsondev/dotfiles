@@ -1,0 +1,68 @@
+#!/bin/bash
+
+echo "Executing $0"
+
+# This is for specific Darwin-based systems.
+
+# Get the system type
+system_type=$(uname -s)
+
+# If the system type is not Darwin, exit
+if [ "$system_type" != "Darwin" ]; then
+    echo "Exiting, not darwin"
+    exit 0
+fi
+
+# Mise - https://mise.jdx.dev
+if ! type mise &>/dev/null; then
+    echo "mise is not installed, installing..."
+    brew install mise
+fi
+
+# Lazygit - https://github.com/jesseduffield/lazygit
+if ! type lazygit &>/dev/null; then
+    echo "lazygit is not installed, installing..."
+    brew install lazygit
+fi
+
+# Bat - https://github.com/sharkdp/bat
+if ! type bat &>/dev/null; then
+    echo "bat is not installed, installing..."
+    brew install bat
+fi
+
+# Fzf - https://junegunn.github.io/fzf
+if ! type fzf &>/dev/null; then
+    echo "fzf is not installed, installing..."
+    brew install fzf
+fi
+
+# Zoxide - https://github.com/ajeetdsouza/zoxide
+if ! type zoxide &>/dev/null; then
+    echo "zoxide is not installed, installing..."
+    brew install zoxide
+fi
+
+# ripgrep - https://github.com/BurntSushi/ripgrep
+if ! type rg &>/dev/null; then
+    echo "ripgrep is not installed, installing..."
+    brew install ripgrep
+fi
+
+# Yq - https://github.com/mikefarah/yq
+if ! type yq &>/dev/null; then
+    echo "yq is not installed, installing..."
+    brew install yq
+fi
+
+# jq - https://github.com/jqlang/jq
+if ! type jq &>/dev/null; then
+    echo "jq is not installed, installing..."
+    brew install jq
+fi
+
+# gh (github cli) - https://cli.github.com
+if ! type gh &>/dev/null; then
+    echo "gh is not installed, installing..."
+    brew install gh
+fi
