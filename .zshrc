@@ -1,3 +1,13 @@
+# load local zsh file if it exists which may contain
+# sensitive files or local config
+[[ -f "$HOME/.zshrc.local" ]] && source "$HOME/.zshrc.local"
+
+# Load seperated config files
+for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
+  source "${conf}"
+done
+unset conf
+
 # TODO what does it do, this is for the completions BREW??
 autoload -Uz compinit
 compinit
