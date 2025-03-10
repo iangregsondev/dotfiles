@@ -1,5 +1,6 @@
 [tools]
 go = "latest"
-node = "latest"
+java = "latest"
+node = "20.17.0"
 python = "latest"
 rust = "latest"

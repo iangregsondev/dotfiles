@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo "Executing $0"
+
+# This is for specific Darwin-based systems.
+
+# Get the system type
+system_type=$(uname -s)
+
+# If the system type is not Darwin, exit
+if [ "$system_type" != "Darwin" ]; then
+    echo "Exiting, not darwin"
+    exit 0
+fi
+
+# Docker - https://formulae.brew.sh/cask/docker
+echo "installing docker..."
+brew install docker
+
+# Docker - https://formulae.brew.sh/cask/docker
+echo "installing docker..."
+brew install docker
+
+# Docker Credential Helper - https://github.com/docker/docker-credential-helpers
+echo "installing docker credential helper..."
+brew install docker-credential-helper
+
+# Lazydocker - https://github.com/jesseduffield/lazydocker
+echo "installing lazydocker..."
+brew install lazydocker
